@@ -1,0 +1,5 @@
+{
+  "name": "AI Affiliate Reviews",
+  "description": "A modern web application for browsing affiliate products and generating AI-powered reviews using Google's Gemini API, with simulated user authentication and review submission.",
+  "requestFramePermissions": []
+}
