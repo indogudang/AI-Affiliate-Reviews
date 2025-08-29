@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Product } from '../types';
 import ProductCard from './ProductCard';
@@ -10,6 +9,7 @@ interface ProductGridProps {
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ products, onSelectProduct, isLoading }) => {
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -28,12 +28,17 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products, onSelectProduct, is
 
   return (
     <div>
-      <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-6">Featured Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} onSelectProduct={onSelectProduct} />
-        ))}
-      </div>
+      {products.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map(product => (
+            <ProductCard key={product.id} product={product} onSelectProduct={onSelectProduct} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-10 px-6 bg-gray-100 dark:bg-gray-800 rounded-lg">
+          <p className="text-gray-500 dark:text-gray-400">No products found matching your search.</p>
+        </div>
+      )}
     </div>
   );
 };

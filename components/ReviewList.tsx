@@ -20,16 +20,16 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => {
   return (
     <div className="space-y-4">
       {reviews.map(review => (
-        <div key={review.id} className={`p-5 rounded-lg ${review.isAI ? 'bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800' : 'bg-white dark:bg-gray-800 shadow-sm'}`}>
+        <div key={review.id} className={`p-5 rounded-lg ${review.is_ai ? 'bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800' : 'bg-white dark:bg-gray-800 shadow-sm'}`}>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center space-x-2">
-              <span className={`p-1.5 rounded-full ${review.isAI ? 'bg-indigo-100 dark:bg-indigo-900 text-indigo-500' : 'bg-gray-100 dark:bg-gray-700 text-gray-500'}`}>
-                {review.isAI ? <SparklesIcon /> : <UserIcon />}
+              <span className={`p-1.5 rounded-full ${review.is_ai ? 'bg-indigo-100 dark:bg-indigo-900 text-indigo-500' : 'bg-gray-100 dark:bg-gray-700 text-gray-500'}`}>
+                {review.is_ai ? <SparklesIcon /> : <UserIcon />}
               </span>
               <p className="font-semibold text-gray-800 dark:text-gray-200">{review.author}</p>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-400">
-              {new Date(review.createdAt).toLocaleDateString()}
+              {new Date(review.created_at).toLocaleDateString()}
             </p>
           </div>
           <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{review.content}</p>

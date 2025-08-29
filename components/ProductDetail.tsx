@@ -31,15 +31,15 @@ const ProductDetail: React.FC<ProductDetailProps> = ({
 
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover min-h-[300px]" />
+          <img src={product.image_url} alt={product.name} className="w-full h-full object-cover min-h-[300px]" />
           <div className="p-8 flex flex-col justify-between">
             <div>
               <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{product.name}</h1>
               <p className="text-gray-600 dark:text-gray-300 mt-4">{product.description}</p>
-              <p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-6">${product.price.toFixed(2)}</p>
+              <p className="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-6">Rp{product.price.toLocaleString('id-ID')}</p>
             </div>
             <a
-              href={product.affiliateLink}
+              href={product.affiliate_link}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 w-full text-center bg-green-600 text-white font-bold py-3 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-300"

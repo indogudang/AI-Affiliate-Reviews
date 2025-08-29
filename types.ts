@@ -1,20 +1,21 @@
 
 export interface Product {
-  id: string;
+  id: string; // uuid
   name: string;
-  imageUrl: string;
+  image_url: string;
   price: number;
-  affiliateLink: string;
+  affiliate_link: string;
   description: string;
+  created_at: string;
 }
 
 export interface Review {
-  id: string;
-  productId: string;
+  id: string; // uuid
+  product_id: string;
   author: string;
   content: string;
-  createdAt: string;
-  isAI: boolean;
+  created_at: string;
+  is_ai: boolean;
 }
 
 export interface User {
@@ -26,5 +27,8 @@ export interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   signIn: (email: string, password: string) => Promise<User | null>;
+  signUp: (email: string, password: string) => Promise<User | null>;
   signOut: () => Promise<void>;
 }
+
+export type SortOrder = 'default' | 'price-asc' | 'price-desc' | 'name-asc' | 'name-desc';
